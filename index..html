@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปาลิตา อุดรพันธ์ - Academic Portfolio</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Kanit/Sarabun -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        },
+                        slate: {
+                            850: '#1e293b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-700 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-lg font-bold tracking-tight text-slate-800 hover:text-brand-600 transition-colors">
+                Palita<span class="text-brand-600">.UD</span>
+            </a>
+            <nav class="hidden sm:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-brand-600 transition-colors">เกี่ยวกับ</a>
+                <a href="#education" class="hover:text-brand-600 transition-colors">การศึกษา</a>
+                <a href="#experience" class="hover:text-brand-600 transition-colors">ประสบการณ์</a>
+                <a href="#skills" class="hover:text-brand-600 transition-colors">ทักษะ</a>
+                <a href="#contact" class="hover:text-brand-600 transition-colors">ติดต่อ</a>
+            </nav>
+            <div class="sm:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu drop-down -->
+        <div id="mobile-menu" class="hidden sm:hidden border-t border-slate-100 bg-white px-6 py-3 space-y-2 text-sm font-medium">
+            <a href="#about" class="block py-1 hover:text-brand-600">เกี่ยวกับ</a>
+            <a href="#education" class="block py-1 hover:text-brand-600">การศึกษา</a>
+            <a href="#experience" class="block py-1 hover:text-brand-600">ประสบการณ์</a>
+            <a href="#skills" class="block py-1 hover:text-brand-600">ทักษะ</a>
+            <a href="#contact" class="block py-1 hover:text-brand-600">ติดต่อ</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-16">
+
+        <!-- Hero / Bio Section -->
+        <section id="about" class="pt-4 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-semibold">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                นักศึกษาชั้นปีที่ 1 สาธารณสุขชุมชน
+            </div>
+            
+            <div class="space-y-3">
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    ปาลิตา อุดรพันธ์
+                </h1>
+                <p class="text-lg text-slate-500 font-normal">
+                    Ms. Palita Udonphan
+                </p>
+            </div>
+
+            <p class="text-slate-600 leading-relaxed max-w-2xl text-base sm:text-lg">
+                กำลังศึกษาระดับปริญญาตรี หลักสูตรสาธารณสุขศาสตรบัณฑิต สาขาวิชาสาธารณสุขชุมชน 
+                <span class="font-medium text-slate-800">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</span> 
+                คณะสาธารณสุขศาสตร์และสหเวชศาสตร์ สถาบันพระบรมราชชนก กระทรวงสาธารณสุข
+            </p>
+
+            <!-- Quick Contact Badges -->
+            <div class="pt-2 flex flex-wrap gap-3 text-sm">
+                <button onclick="copyEmail()" class="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-brand-500 hover:text-brand-600 text-slate-700 px-4 py-2 rounded-xl transition-all shadow-sm group cursor-pointer">
+                    <i class="fa-regular fa-envelope text-slate-400 group-hover:text-brand-500"></i>
+                    <span id="email-text">xudrphanpalita@gmail.com</span>
+                    <i class="fa-regular fa-copy text-xs text-slate-300 group-hover:text-brand-400"></i>
+                </button>
+                <a href="tel:+66889607309" class="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-brand-500 hover:text-brand-600 text-slate-700 px-4 py-2 rounded-xl transition-all shadow-sm group">
+                    <i class="fa-solid fa-phone text-slate-400 group-hover:text-brand-500"></i>
+                    <span>+66 88 960 7309</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-brand-50 text-brand-600 rounded-lg">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900">ประวัติการศึกษา</h2>
+            </div>
+
+            <div class="relative border-l-2 border-slate-200 ml-3 pl-6 space-y-8">
+                
+                <!-- University -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-brand-500 ring-4 ring-white"></div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-semibold text-brand-600 uppercase tracking-wider">ปัจจุบัน</span>
+                        <h3 class="text-lg font-semibold text-slate-800">ปริญญาตรี - สาขาวิชาสาธารณสุขชุมชน</h3>
+                        <p class="text-slate-600">หลักสูตรสาธารณสุขศาสตรบัณฑิต วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</p>
+                        <p class="text-xs text-slate-400">คณะสาธารณสุขศาสตร์และสหเวชศาสตร์ สถาบันพระบรมราชชนก</p>
+                    </div>
+                </div>
+
+                <!-- High School -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-300 group-hover:bg-brand-400 transition-colors ring-4 ring-white"></div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-medium text-slate-400">ระดับมัธยมศึกษาตอนปลาย (ม.4-6)</span>
+                        <h3 class="text-base font-semibold text-slate-800">โรงเรียนเตรียมอุดมศึกษา ภาคตะวันออกเฉียงเหนือ</h3>
+                    </div>
+                </div>
+
+                <!-- Junior High School -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-300 group-hover:bg-brand-400 transition-colors ring-4 ring-white"></div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-medium text-slate-400">ระดับมัธยมศึกษาตอนต้น (ม.1-3)</span>
+                        <h3 class="text-base font-semibold text-slate-800">โรงเรียนสว่างแดนดิน</h3>
+                    </div>
+                </div>
+
+                <!-- Primary School -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-300 group-hover:bg-brand-400 transition-colors ring-4 ring-white"></div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-medium text-slate-400">ระดับประถมศึกษา (ป.1-6)</span>
+                        <h3 class="text-base font-semibold text-slate-800">โรงเรียนชุมชนบ้านท่าศิลา</h3>
+                    </div>
+                </div>
+
+                <!-- Kindergarten -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-300 group-hover:bg-brand-400 transition-colors ring-4 ring-white"></div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-medium text-slate-400">ระดับอนุบาล</span>
+                        <h3 class="text-base font-semibold text-slate-800">โรงเรียนชุมชนบ้านท่าศิลา</h3>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="experience" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-brand-50 text-brand-600 rounded-lg">
+                    <i class="fa-solid fa-briefcase text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900">ประสบการณ์ทำงาน</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm transition-all flex items-start gap-4">
+                    <div class="p-3 bg-slate-50 text-slate-600 rounded-xl">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-800">พนักงานรับออเดอร์ & เตรียมวัตถุดิบ</h3>
+                        <p class="text-sm text-slate-500">ร้านอาหารผัดไท ศูนย์อาหารโลตัส</p>
+                        <span class="inline-block mt-2 text-xs text-brand-600 font-medium bg-brand-50 px-2.5 py-0.5 rounded-md">Part-Time</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm transition-all flex items-start gap-4">
+                    <div class="p-3 bg-slate-50 text-slate-600 rounded-xl">
+                        <i class="fa-solid fa-bowl-food"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-800">พนักงานเสิร์ฟ</h3>
+                        <p class="text-sm text-slate-500">ร้านก๋วยเตี๋ยว</p>
+                        <span class="inline-block mt-2 text-xs text-brand-600 font-medium bg-brand-50 px-2.5 py-0.5 rounded-md">Part-Time</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm transition-all flex items-start gap-4">
+                    <div class="p-3 bg-slate-50 text-slate-600 rounded-xl">
+                        <i class="fa-solid fa-burger"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-800">พนักงานเสิร์ฟ</h3>
+                        <p class="text-sm text-slate-500">ร้านอาหาร Grey Cabin</p>
+                        <span class="inline-block mt-2 text-xs text-brand-600 font-medium bg-brand-50 px-2.5 py-0.5 rounded-md">Part-Time</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm transition-all flex items-start gap-4">
+                    <div class="p-3 bg-slate-50 text-slate-600 rounded-xl">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-800">พนักงานทำความสะอาด</h3>
+                        <p class="text-sm text-slate-500">คาเฟ่เฉิดฉาย</p>
+                        <span class="inline-block mt-2 text-xs text-brand-600 font-medium bg-brand-50 px-2.5 py-0.5 rounded-md">Part-Time</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-brand-50 text-brand-600 rounded-lg">
+                    <i class="fa-solid fa-laptop-code text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900">ทักษะ & โปรแกรม</h2>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 mx-auto mb-2 flex items-center justify-center bg-sky-50 text-sky-500 rounded-lg text-lg">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-slate-700">Canva</span>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 mx-auto mb-2 flex items-center justify-center bg-emerald-50 text-emerald-600 rounded-lg text-lg">
+                        <i class="fa-solid fa-file-excel"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-slate-700">MS Excel</span>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 mx-auto mb-2 flex items-center justify-center bg-slate-100 text-slate-800 rounded-lg text-lg">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-slate-700">CapCut</span>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 mx-auto mb-2 flex items-center justify-center bg-blue-50 text-blue-600 rounded-lg text-lg">
+                        <i class="fa-solid fa-file-word"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-slate-700">MS Word</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact & Address Section -->
+        <section id="contact" class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 space-y-6">
+            <h2 class="text-2xl font-bold tracking-tight">ข้อมูลการติดต่อ</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-300 text-sm">
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-brand-500"></i>
+                        <p class="leading-relaxed">
+                            90/1 หมู่ 4 ถนนอนามัย ตำบลในเมือง<br>
+                            อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40000
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-brand-500"></i>
+                        <a href="mailto:xudrphanpalita@gmail.com" class="hover:underline">xudrphanpalita@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-brand-500"></i>
+                        <a href="tel:+66889607309" class="hover:underline">+66 88 960 7309</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-6 mt-16 text-center text-xs text-slate-400">
+        <p>© Palita Udonphan. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 flex items-center gap-2">
+        <i class="fa-solid fa-check text-brand-500"></i>
+        <span>คัดลอกอีเมลเรียบร้อยแล้ว</span>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Copy Email Function
+        function copyEmail() {
+            const email = "xudrphanpalita@gmail.com";
+            
+            // Clipboard fallback logic
+            const tempInput = document.createElement("input");
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // Toast feedback
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
