@@ -3,457 +3,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ปาลิตา อุดรพันธ์ - Academic Portfolio</title>
-
+    <title>Palita Udonphan | Academic Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts: Prompt & Kanit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Prompt', 'Kanit', 'sans-serif'],
-                    },
                     colors: {
-                        vibrant: {
-                            pink: '#FF2E93',
-                            purple: '#8A2BE2',
-                            cyan: '#00F0FF',
-                            amber: '#FFB800',
-                            emerald: '#00E676'
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        teal: {
+                            500: '#14b8a6',
+                            600: '#0d9488',
                         }
                     },
-                    boxShadow: {
-                        'glow-pink': '0 10px 25px -5px rgba(255, 46, 147, 0.3)',
-                        'glow-purple': '0 10px 25px -5px rgba(138, 43, 226, 0.3)',
-                        'glow-cyan': '0 10px 25px -5px rgba(0, 240, 255, 0.3)',
-                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                    fontFamily: {
+                        sans: ['Prompt', 'Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-
+    <!-- Google Fonts: Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom print stylesheet for PDF download */
-        @media print {
-            body { background: white !important; color: black !important; }
-            .no-print { display: none !important; }
-            .print-full { width: 100% !important; margin: 0 !important; padding: 0 !important; }
-            .shadow-lg, .shadow-xl, .shadow-2xl, .shadow-glow-pink, .shadow-glow-purple { shadow: none !important; box-shadow: none !important; }
-            .backdrop-blur-md, .backdrop-blur-xl { backdrop-filter: none !important; }
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #e6fffa 50%, #f0fdfa 100%);
+            min-height: 100vh;
         }
-
-        /* Glassmorphism utility */
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.6);
         }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #FF2E93 0%, #8A2BE2 50%, #00F0FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(135deg, #10b981, #06b6d4, #3b82f6);
+            padding: 4px;
+            border-radius: 9999px;
         }
-
-        .gradient-bg-vibrant {
-            background: linear-gradient(135deg, #FF2E93 0%, #8A2BE2 50%, #00F0FF 100%);
-        }
-
-        .animated-blob {
-            animation: blob-bounce 8s infinite alternate ease-in-out;
-        }
-
-        @keyframes blob-bounce {
-            0% { transform: translate(0px, 0px) scale(1); }
-            50% { transform: translate(30px, -20px) scale(1.08); }
-            100% { transform: translate(-20px, 20px) scale(0.95); }
+        .toast-slide {
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-pink-50/30 via-purple-50/20 to-cyan-50/40 text-slate-800 font-sans min-h-screen relative overflow-x-hidden">
+<body class="text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
 
-    <!-- Background Decorative Colorful Blobs -->
-    <div class="fixed top-0 left-1/4 w-96 h-96 bg-pink-300/30 rounded-full filter blur-3xl animated-blob -z-10 pointer-events-none"></div>
-    <div class="fixed top-1/3 right-10 w-96 h-96 bg-purple-300/30 rounded-full filter blur-3xl animated-blob -z-10 pointer-events-none" style="animation-delay: 2s;"></div>
-    <div class="fixed bottom-10 left-10 w-96 h-96 bg-cyan-300/30 rounded-full filter blur-3xl animated-blob -z-10 pointer-events-none" style="animation-delay: 4s;"></div>
-
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 glass-card border-b border-white/50 no-print">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-xl gradient-bg-vibrant flex items-center justify-center text-white font-bold text-xl shadow-glow-pink transition-transform group-hover:scale-105">
-                    P
-                </div>
-                <span class="font-bold text-xl tracking-tight text-slate-800">Palita<span class="gradient-text">.Portfolio</span></span>
-            </a>
-
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="#about" class="hover:text-pink-600 transition-colors">เกี่ยวกับ</a>
-                <a href="#education" class="hover:text-purple-600 transition-colors">ประวัติการศึกษา</a>
-                <a href="#experience" class="hover:text-cyan-600 transition-colors">ประสบการณ์ทำงาน</a>
-                <a href="#skills" class="hover:text-amber-500 transition-colors">ทักษะความสามารถ</a>
-            </nav>
-
-            <!-- Action Buttons -->
-            <div class="flex items-center gap-3">
-                <button onclick="window.print()" class="no-print hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium bg-slate-900 text-white hover:bg-slate-800 transition-all shadow-md hover:shadow-lg active:scale-95">
-                    <i data-lucide="printer" class="w-4 h-4"></i>
-                    <span>พิมพ์ / PDF</span>
-                </button>
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/50 px-6 py-4 space-y-3 bg-white/90 backdrop-blur-md">
-            <a href="#about" class="block text-slate-700 hover:text-pink-600 font-medium py-1">เกี่ยวกับ</a>
-            <a href="#education" class="block text-slate-700 hover:text-purple-600 font-medium py-1">ประวัติการศึกษา</a>
-            <a href="#experience" class="block text-slate-700 hover:text-cyan-600 font-medium py-1">ประสบการณ์ทำงาน</a>
-            <a href="#skills" class="block text-slate-700 hover:text-amber-500 font-medium py-1">ทักษะความสามารถ</a>
-            <button onclick="window.print()" class="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-slate-900 text-white">
-                <i data-lucide="printer" class="w-4 h-4"></i>
-                <span>พิมพ์ / บันทึกเป็น PDF</span>
-            </button>
-        </div>
-    </header>
-
-    <!-- Main Content Container -->
-    <main class="max-w-5xl mx-auto px-6 py-10 space-y-16">
-
-        <!-- HERO / ABOUT SECTION -->
-        <section id="about" class="pt-4">
-            <div class="glass-card rounded-3xl p-8 md:p-12 shadow-glass relative overflow-hidden">
-                <!-- Top Vibrant Accent Bar -->
-                <div class="absolute top-0 left-0 right-0 h-2 gradient-bg-vibrant"></div>
-
-                <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-                    <!-- Avatar Badge -->
-                    <div class="relative group flex-shrink-0">
-                        <div class="w-36 h-36 md:w-44 md:h-44 rounded-3xl gradient-bg-vibrant p-1 shadow-glow-pink transition-transform duration-300 group-hover:rotate-2">
-                            <div class="w-full h-full bg-white rounded-[22px] flex flex-col items-center justify-center text-center p-4 relative overflow-hidden">
-                                <div class="w-20 h-20 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 mb-2">
-                                    <i data-lucide="user" class="w-10 h-10"></i>
-                                </div>
-                                <span class="text-xs font-bold text-slate-500 tracking-wider uppercase">Portfolio</span>
-                                <span class="text-sm font-extrabold gradient-text">ปาลิตา</span>
-                            </div>
-                        </div>
-                        <div class="absolute -bottom-2 -right-2 bg-amber-400 text-slate-900 font-bold text-xs px-3 py-1 rounded-full shadow-lg flex items-center gap-1 border-2 border-white">
-                            <i data-lucide="sparkles" class="w-3.5 h-3.5 fill-current"></i>
-                            <span>ปี 1</span>
-                        </div>
-                    </div>
-
-                    <!-- Profile Bio -->
-                    <div class="flex-1 text-center md:text-left space-y-4">
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-100/80 text-pink-700 text-xs font-semibold tracking-wide border border-pink-200">
-                            <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-                            นักศึกษาหลักสูตรสาธารณสุขศาสตรบัณฑิต
-                        </div>
-
-                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-                            นางสาว ปาลิตา อุดรพันธ์
-                        </h1>
-                        <p class="text-base md:text-lg font-medium text-slate-600">
-                            สาขาวิชาสาธารณสุขชุมชน • วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น
-                        </p>
-                        <p class="text-sm text-slate-500 leading-relaxed max-w-2xl">
-                            คณะสาธารณสุขศาสตร์และสหเวชศาสตร์ สถาบันพระบรมราชชนก กระทรวงสาธารณสุข
-                        </p>
-
-                        <!-- Address Info Box -->
-                        <div class="pt-2 flex flex-col sm:flex-row items-center md:items-start gap-2 text-xs md:text-sm text-slate-600 bg-slate-50/80 p-3.5 rounded-2xl border border-slate-200/60">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-pink-500 flex-shrink-0 mt-0.5"></i>
-                            <span><strong>ที่อยู่:</strong> 90/1 หมู่ 4 ถนนอนามัย ตำบลในเมือง อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40000</span>
-                        </div>
-
-                        <!-- Quick Interactive Buttons -->
-                        <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-3 no-print">
-                            <button onclick="copyToClipboard('xudrphanpalita@gmail.com', 'คัดลอกอีเมลเรียบร้อย!')" class="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-700 border border-slate-200 shadow-sm hover:border-pink-300 hover:text-pink-600 transition-all active:scale-95 text-sm font-semibold">
-                                <i data-lucide="mail" class="w-4 h-4 text-pink-500 group-hover:scale-110 transition-transform"></i>
-                                <span>xudrphanpalita@gmail.com</span>
-                                <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400 group-hover:text-pink-500"></i>
-                            </button>
-
-                            <a href="tel:+889607309" class="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-700 border border-slate-200 shadow-sm hover:border-purple-300 hover:text-purple-600 transition-all active:scale-95 text-sm font-semibold">
-                                <i data-lucide="phone" class="w-4 h-4 text-purple-500 group-hover:scale-110 transition-transform"></i>
-                                <span>+889607309</span>
-                                <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400 group-hover:text-purple-500"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- EDUCATION SECTION -->
-        <section id="education" class="space-y-6">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white shadow-glow-purple">
-                    <i data-lucide="graduation-cap" class="w-5 h-5"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900 tracking-tight">ประวัติการศึกษา</h2>
-                    <p class="text-xs text-slate-500">Education Timeline</p>
-                </div>
-            </div>
-
-            <div class="relative pl-6 md:pl-8 space-y-6 before:absolute before:left-2 md:before:left-3 before:top-3 before:bottom-3 before:w-1 before:bg-gradient-to-b before:from-purple-500 before:via-pink-400 before:to-cyan-400 before:rounded-full">
-
-                <!-- 1. Higher Education -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] md:-left-[35px] top-1.5 w-5 h-5 rounded-full bg-purple-600 border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
-                    <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border-l-4 border-l-purple-600">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold">ระดับอุดมศึกษา (ปัจจุบัน)</span>
-                            <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-lg">ชั้นปีที่ 1</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</h3>
-                        <p class="text-sm font-semibold text-slate-700 mt-1">หลักสูตรสาธารณสุขศาสตรบัณฑิต สาขาวิชาสาธารณสุขชุมชน</p>
-                        <p class="text-xs text-slate-500 mt-1">คณะสาธารณสุขศาสตร์และสหเวชศาสตร์ สถาบันพระบรมราชชนก</p>
-                    </div>
-                </div>
-
-                <!-- 2. High School -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] md:-left-[35px] top-1.5 w-5 h-5 rounded-full bg-pink-500 border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
-                    <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border-l-4 border-l-pink-500">
-                        <div class="flex items-center justify-between gap-2 mb-2">
-                            <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-bold">ระดับมัธยมศึกษาตอนปลาย</span>
-                            <span class="text-xs font-medium text-slate-500">ม.4 - ม.6</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900">โรงเรียนเตรียมอุดมศึกษา ภาคตะวันออกเฉียงเหนือ</h3>
-                    </div>
-                </div>
-
-                <!-- 3. Junior High School -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] md:-left-[35px] top-1.5 w-5 h-5 rounded-full bg-amber-400 border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
-                    <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border-l-4 border-l-amber-400">
-                        <div class="flex items-center justify-between gap-2 mb-2">
-                            <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">ระดับมัธยมศึกษาตอนต้น</span>
-                            <span class="text-xs font-medium text-slate-500">ม.1 - ม.3</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900">โรงเรียนสว่างแดนดิน</h3>
-                    </div>
-                </div>
-
-                <!-- 4. Primary School -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] md:-left-[35px] top-1.5 w-5 h-5 rounded-full bg-cyan-400 border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
-                    <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border-l-4 border-l-cyan-400">
-                        <div class="flex items-center justify-between gap-2 mb-2">
-                            <span class="px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 text-xs font-bold">ระดับประถมศึกษา</span>
-                            <span class="text-xs font-medium text-slate-500">ป.1 - ป.6</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900">โรงเรียนชุมชนบ้านท่าศิลา</h3>
-                    </div>
-                </div>
-
-                <!-- 5. Kindergarten -->
-                <div class="relative group">
-                    <div class="absolute -left-[31px] md:-left-[35px] top-1.5 w-5 h-5 rounded-full bg-emerald-400 border-4 border-white shadow-md group-hover:scale-125 transition-transform"></div>
-                    <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border-l-4 border-l-emerald-400">
-                        <div class="flex items-center justify-between gap-2 mb-2">
-                            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">ระดับอนุบาล</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900">โรงเรียนชุมชนบ้านท่าศิลา</h3>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- EXPERIENCE SECTION -->
-        <section id="experience" class="space-y-6">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-glow-cyan">
-                    <i data-lucide="briefcase" class="w-5 h-5"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900 tracking-tight">ประสบการณ์ทำงานพาร์ทไทม์</h2>
-                    <p class="text-xs text-slate-500">Part-Time Work Experience</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                <!-- Job 1 -->
-                <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 border-t-4 border-t-pink-500 flex gap-4 items-start">
-                    <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0">
-                        <i data-lucide="utensils" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-bold text-pink-600 uppercase tracking-wider">ร้านอาหาร</span>
-                        <h3 class="text-base font-bold text-slate-900 mt-0.5">พนักงานรับออเดอร์ & เตรียมวัตถุดิบ</h3>
-                        <p class="text-xs text-slate-500 mt-1">ร้านอาหารผัดไท ศูนย์อาหารโลตัส</p>
-                    </div>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 border-t-4 border-t-purple-500 flex gap-4 items-start">
-                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0">
-                        <i data-lucide="soup" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">ร้านอาหาร</span>
-                        <h3 class="text-base font-bold text-slate-900 mt-0.5">พนักงานเสิร์ฟ</h3>
-                        <p class="text-xs text-slate-500 mt-1">ร้านก๋วยเตี๋ยว</p>
-                    </div>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 border-t-4 border-t-cyan-500 flex gap-4 items-start">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center flex-shrink-0">
-                        <i data-lucide="coffee" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-bold text-cyan-700 uppercase tracking-wider">ร้านอาหาร & คาเฟ่</span>
-                        <h3 class="text-base font-bold text-slate-900 mt-0.5">พนักงานเสิร์ฟ</h3>
-                        <p class="text-xs text-slate-500 mt-1">ร้านอาหาร Grey Cabin</p>
-                    </div>
-                </div>
-
-                <!-- Job 4 -->
-                <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 border-t-4 border-t-amber-400 flex gap-4 items-start">
-                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0">
-                        <i data-lucide="sparkles" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">บริการ & ทำความสะอาด</span>
-                        <h3 class="text-base font-bold text-slate-900 mt-0.5">พนักงานทำความสะอาด</h3>
-                        <p class="text-xs text-slate-500 mt-1">คาเฟ่เฉิดฉาย</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SKILLS SECTION -->
-        <section id="skills" class="space-y-6">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-400 to-pink-500 flex items-center justify-center text-white shadow-md">
-                    <i data-lucide="laptop" class="w-5 h-5"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900 tracking-tight">ทักษะความสามารถ (Programs)</h2>
-                    <p class="text-xs text-slate-500">Software & Digital Skills</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-
-                <!-- Canva -->
-                <div class="glass-card rounded-2xl p-5 text-center shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
-                    <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-cyan-400 to-teal-400 text-white flex items-center justify-center font-extrabold text-xl shadow-md group-hover:scale-110 transition-transform mb-3">
-                        Ca
-                    </div>
-                    <h3 class="font-bold text-slate-800">Canva</h3>
-                    <p class="text-xs text-slate-500 mt-1">Graphic Design</p>
-                </div>
-
-                <!-- Excel -->
-                <div class="glass-card rounded-2xl p-5 text-center shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
-                    <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-emerald-500 to-green-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md group-hover:scale-110 transition-transform mb-3">
-                        Xls
-                    </div>
-                    <h3 class="font-bold text-slate-800">Microsoft Excel</h3>
-                    <p class="text-xs text-slate-500 mt-1">Spreadsheets & Data</p>
-                </div>
-
-                <!-- CapCut -->
-                <div class="glass-card rounded-2xl p-5 text-center shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
-                    <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-900 text-white flex items-center justify-center font-extrabold text-xl shadow-md group-hover:scale-110 transition-transform mb-3">
-                        Cc
-                    </div>
-                    <h3 class="font-bold text-slate-800">CapCut</h3>
-                    <p class="text-xs text-slate-500 mt-1">Video Editing</p>
-                </div>
-
-                <!-- Word -->
-                <div class="glass-card rounded-2xl p-5 text-center shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
-                    <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-blue-500 to-indigo-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md group-hover:scale-110 transition-transform mb-3">
-                        Doc
-                    </div>
-                    <h3 class="font-bold text-slate-800">Microsoft Word</h3>
-                    <p class="text-xs text-slate-500 mt-1">Document Processing</p>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="mt-20 border-t border-slate-200/60 bg-white/60 backdrop-blur-md py-8 text-center text-xs text-slate-500 no-print">
-        <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>© 2026 นางสาว ปาลิตา อุดรพันธ์ — Academic Portfolio</p>
-            <p class="flex items-center gap-1">
-                <span>Designed with</span>
-                <i data-lucide="heart" class="w-3.5 h-3.5 text-pink-500 fill-current"></i>
-                <span>& Tailwind CSS for GitHub Pages</span>
-            </p>
-        </div>
-    </footer>
-
-    <!-- Toast Notification for Copy Alert -->
-    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-50 text-sm font-medium border border-slate-700">
-        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
-        <span id="toast-message">คัดลอกข้อความแล้ว</span>
+    <!-- Toast Notification for Copy Email -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 toast-slide bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 border border-slate-700">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toast-message" class="text-sm font-medium">คัดลอกอีเมลเรียบร้อยแล้ว!</span>
     </div>
 
-    <!-- JavaScript Functions -->
+    <!-- Main Wrapper Container -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
+
+        <!-- Header / Hero Card -->
+        <header class="glass-card rounded-3xl p-6 sm:p-10 shadow-xl shadow-emerald-900/5 relative overflow-hidden">
+            <!-- Decorative Background Glow -->
+            <div class="absolute -top-24 -right-24 w-72 h-72 bg-emerald-300/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-teal-300/30 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 relative z-10">
+                <!-- Profile Image with Gradient Frame -->
+                <div class="gradient-border shadow-2xl shadow-emerald-500/20 flex-shrink-0 group">
+                    <img 
+                        src="https://raw.githubusercontent.com/69202302059-devP/Plitta_/main/S__32571395.jpg" 
+                        alt="นางสาว ปาลิตา อุดรพันธ์" 
+                        class="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x400/10b981/ffffff?text=Palita+Udonphan';"
+                    >
+                </div>
+
+                <!-- Personal Information Section -->
+                <div class="flex-1 text-center md:text-left space-y-4">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs sm:text-sm font-semibold mb-3">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>นักศึกษาชั้นปีที่ 1</span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+                            นางสาว ปาลิตา อุดรพันธ์
+                        </h1>
+                        <p class="text-lg sm:text-xl font-medium text-emerald-600 mt-2">
+                            สาขาวิชาสาธารณสุขชุมชน (ส.บ.)
+                        </p>
+                    </div>
+
+                    <!-- Institution Details -->
+                    <div class="bg-white/70 rounded-2xl p-4 sm:p-5 border border-slate-100 space-y-1.5 text-slate-600 text-sm sm:text-base shadow-sm">
+                        <p class="font-semibold text-slate-800 flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa-solid fa-building-columns text-emerald-500"></i>
+                            วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-500 pl-0 md:pl-6">
+                            คณะสาธารณสุขศาสตร์และสหเวชศาสตร์ สถาบันพระบรมราชชนก กระทรวงสาธารณสุข
+                        </p>
+                    </div>
+
+                    <!-- Contact & CTA Buttons -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+                        <button onclick="copyToClipboard('xudrphanpalita@gmail.com', 'คัดลอกอีเมลเรียบร้อยแล้ว!')" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm transition-all shadow-md hover:shadow-lg active:scale-95">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>คัดลอกอีเมล</span>
+                        </button>
+                        <a href="tel:+889607309" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition-all shadow-md shadow-emerald-600/20 hover:shadow-lg active:scale-95">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+889607309</span>
+                        </a>
+                        <a href="#contact" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 font-medium text-sm border border-slate-200 transition-all shadow-sm hover:shadow active:scale-95">
+                            <i class="fa-solid fa-location-dot text-emerald-500"></i>
+                            <span>ที่อยู่ติดต่อ</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Column: Skills & Contact Info -->
+            <div class="space-y-8 lg:col-span-1">
+
+                <!-- Program Skills Section -->
+                <section class="glass-card rounded-3xl p-6 sm:p-7 shadow-xl shadow-emerald-900/5 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/30">
+                            <i class="fa-solid fa-laptop-code text-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-900">ทักษะโปรแกรม</h2>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3.5">
+                        <!-- Skill 1: Canva -->
+                        <div class="p-3.5 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col items-center text-center group hover:border-emerald-300 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-palette text-xl"></i>
+                            </div>
+                            <span class="font-semibold text-slate-800 text-sm">Canva</span>
+                            <span class="text-[11px] text-slate-400">Graphic & Design</span>
+                        </div>
+
+                        <!-- Skill 2: Microsoft Excel -->
+                        <div class="p-3.5 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col items-center text-center group hover:border-emerald-300 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                <i class="fa-regular fa-file-excel text-xl"></i>
+                            </div>
+                            <span class="font-semibold text-slate-800 text-sm">MS Excel</span>
+                            <span class="text-[11px] text-slate-400">Data Management</span>
+                        </div>
+
+                        <!-- Skill 3: CapCut -->
+                        <div class="p-3.5 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col items-center text-center group hover:border-emerald-300 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-video text-xl"></i>
+                            </div>
+                            <span class="font-semibold text-slate-800 text-sm">CapCut</span>
+                            <span class="text-[11px] text-slate-400">Video Editing</span>
+                        </div>
+
+                        <!-- Skill 4: Microsoft Word -->
+                        <div class="p-3.5 rounded-2xl bg-white border border-slate-100 shadow-sm flex flex-col items-center text-center group hover:border-emerald-300 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                <i class="fa-regular fa-file-word text-xl"></i>
+                            </div>
+                            <span class="font-semibold text-slate-800 text-sm">MS Word</span>
+                            <span class="text-[11px] text-slate-400">Documentation</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Address & Quick Contact Section -->
+                <section id="contact" class="glass-card rounded-3xl p-6 sm:p-7 shadow-xl shadow-emerald-900/5 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-2xl bg-teal-500 text-white flex items-center justify-center shadow-md shadow-teal-500/30">
+                            <i class="fa-solid fa-address-book text-lg"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-900">ข้อมูลการติดต่อ</h2>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <!-- Email Item -->
+                        <div class="flex items-start space-x-3 p-3 rounded-2xl bg-white/80 border border-slate-100">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-xs text-slate-400 font-medium">อีเมล (Email)</p>
+                                <p class="font-medium text-slate-800 truncate">xudrphanpalita@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone Item -->
+                        <div class="flex items-start space-x-3 p-3 rounded-2xl bg-white/80 border border-slate-100">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-xs text-slate-400 font-medium">เบอร์โทรศัพท์ (Mobile)</p>
+                                <p class="font-medium text-slate-800">+889607309</p>
+                            </div>
+                        </div>
+
+                        <!-- Location Item -->
+                        <div class="flex items-start space-x-3 p-3 rounded-2xl bg-white/80 border border-slate-100">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-xs text-slate-400 font-medium">ที่อยู่ปัจจุบัน</p>
+                                <p class="font-medium text-slate-800 leading-relaxed">
+                                    90/1 หมู่ 4 ถนนอนามัย ตำบลในเมือง อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40000
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Education & Work Experience -->
+            <div class="space-y-8 lg:col-span-2">
+
+                <!-- Education Section (ประวัติการศึกษา) -->
+                <section class="glass-card rounded-3xl p-6 sm:p-8 shadow-xl shadow-emerald-900/5 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/30">
+                            <i class="fa-solid fa-graduation-cap text-lg"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">ประวัติการศึกษา</h2>
+                    </div>
+
+                    <!-- Timeline Structure -->
+                    <div class="relative pl-6 sm:pl-8 space-y-8 border-l-2 border-emerald-200">
+
+                        <!-- Item 1: University (Current) -->
+                        <div class="relative group">
+                            <!-- Timeline Dot -->
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-emerald-500 border-4 border-white shadow-md ring-4 ring-emerald-100 group-hover:scale-125 transition-transform"></div>
+                            
+                            <div class="bg-white/90 p-5 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">ปัจจุบัน</span>
+                                    <span class="text-xs text-slate-400 font-medium">ระดับอุดมศึกษา</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900">
+                                    นักศึกษาชั้นปีที่ 1 หลักสูตรสาธารณสุขศาสตรบัณฑิต (สาขาวิชาสาธารณสุขชุมชน)
+                                </h3>
+                                <p class="text-sm text-emerald-600 font-medium mt-1">
+                                    วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น
+                                </p>
+                                <p class="text-xs text-slate-500 mt-0.5">
+                                    คณะสาธารณสุขศาสตร์และสหเวชศาสตร์ สถาบันพระบรมราชชนก
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Senior High School -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-300 border-4 border-white group-hover:bg-emerald-500 group-hover:scale-125 transition-all"></div>
+                            
+                            <div class="bg-white/80 p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-semibold text-slate-500">ระดับมัธยมศึกษาตอนปลาย (ม.4-6)</span>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-800">
+                                    โรงเรียนเตรียมอุดมศึกษา ภาคตะวันออกเฉียงเหนือ
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Junior High School -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-300 border-4 border-white group-hover:bg-emerald-500 group-hover:scale-125 transition-all"></div>
+                            
+                            <div class="bg-white/80 p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-semibold text-slate-500">ระดับมัธยมศึกษาตอนต้น (ม.1-3)</span>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-800">
+                                    โรงเรียนสว่างแดนดิน
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: Primary School -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-300 border-4 border-white group-hover:bg-emerald-500 group-hover:scale-125 transition-all"></div>
+                            
+                            <div class="bg-white/80 p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-semibold text-slate-500">ระดับประถมศึกษา (ป.1-6)</span>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-800">
+                                    โรงเรียนชุมชนบ้านท่าศิลา
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Item 5: Kindergarten -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-300 border-4 border-white group-hover:bg-emerald-500 group-hover:scale-125 transition-all"></div>
+                            
+                            <div class="bg-white/80 p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-semibold text-slate-500">ระดับปฐมวัย</span>
+                                </div>
+                                <h3 class="text-base font-bold text-slate-800">
+                                    โรงเรียนชุมชนบ้านท่าศิลา (ระดับชั้นอนุบาล)
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Work Experience Section (ประสบการณ์ทำงาน) -->
+                <section class="glass-card rounded-3xl p-6 sm:p-8 shadow-xl shadow-emerald-900/5 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-2xl bg-teal-500 text-white flex items-center justify-center shadow-md shadow-teal-500/30">
+                            <i class="fa-solid fa-briefcase text-lg"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-900">ประสบการณ์ทำงาน</h2>
+                            <p class="text-xs text-slate-500">Part-Time & Service Experience</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Experience Card 1 -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-utensils text-sm"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-base">พนักงานรับออเดอร์ & เตรียมวัตถุดิบ</h3>
+                                <p class="text-xs text-slate-500 mt-1">ร้านอาหารผัดไท ศูนย์อาหารโลตัส</p>
+                            </div>
+                            <span class="inline-block mt-4 text-[11px] px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 font-medium w-fit">
+                                การบริการและเตรียมวัตถุดิบ
+                            </span>
+                        </div>
+
+                        <!-- Experience Card 2 -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-bowl-food text-sm"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-base">พนักงานเสิร์ฟ</h3>
+                                <p class="text-xs text-slate-500 mt-1">ร้านก๋วยเตี๋ยว</p>
+                            </div>
+                            <span class="inline-block mt-4 text-[11px] px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 font-medium w-fit">
+                                งานบริการลูกค้า
+                            </span>
+                        </div>
+
+                        <!-- Experience Card 3 -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-wine-glass text-sm"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-base">พนักงานเสิร์ฟ</h3>
+                                <p class="text-xs text-slate-500 mt-1">ร้านอาหาร Grey Cabin</p>
+                            </div>
+                            <span class="inline-block mt-4 text-[11px] px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 font-medium w-fit">
+                                ต้อนรับและบริการลูกค้า
+                            </span>
+                        </div>
+
+                        <!-- Experience Card 4 -->
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-broom text-sm"></i>
+                                </div>
+                                <h3 class="font-bold text-slate-800 text-base">พนักงานทำความสะอาด</h3>
+                                <p class="text-xs text-slate-500 mt-1">คาเฟ่เฉิดฉาย</p>
+                            </div>
+                            <span class="inline-block mt-4 text-[11px] px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 font-medium w-fit">
+                                ดูแลความสะอาดและสุขอนามัย
+                            </span>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center pt-6 pb-4 border-t border-slate-200/60 text-xs text-slate-500">
+            <p>© 2026 Palita Udonphan — Academic Portfolio | วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Interactivity -->
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Copy to clipboard helper
         function copyToClipboard(text, message) {
-            const tempInput = document.createElement('input');
+            // Using execCommand for compatible clipboard copying in iframe environments
+            const tempInput = document.createElement("input");
             tempInput.value = text;
             document.body.appendChild(tempInput);
             tempInput.select();
-            document.execCommand('copy');
+            document.execCommand("copy");
             document.body.removeChild(tempInput);
 
             showToast(message);
         }
 
-        // Show Toast Notification
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = msg;
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            const toastMessage = document.getElementById("toast-message");
 
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
+            toastMessage.textContent = message;
+            toast.classList.remove("translate-y-20", "opacity-0");
+            toast.classList.add("translate-y-0", "opacity-100");
 
             setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove("translate-y-0", "opacity-100");
+                toast.classList.add("translate-y-20", "opacity-0");
             }, 3000);
         }
     </script>
